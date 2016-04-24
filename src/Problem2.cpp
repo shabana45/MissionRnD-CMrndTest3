@@ -71,6 +71,39 @@ struct node{
 	struct node *right;
 };
 
+int search1(struct node* root, int n)
+{
+	if (root == NULL)
+		return 0;
+	if (n == root->data)
+		return 1;
+	if (n < root->data){
+		if (search1(root->left, n) == 1) {
+			return 1;
+		}
+	}
+	if (n > root->data){
+		if (search1(root->right, n) == 1) {
+			return 1;
+		}
+	}
+
+}
 int is_identical(struct node_dll *head, struct node *root){
-	return -1;
+	if (head == NULL || root == NULL)
+		return -1;
+	struct node_dll *temp = head;
+	int x;
+	int flag = 1;
+	do
+	{
+		printf("X");
+		x = search1(root, temp->data);
+		if (x != 1){
+			return 0;
+		}
+		head = head->next;
+	} while (head != NULL);
+	printf("\n");
+		return 1;
 }

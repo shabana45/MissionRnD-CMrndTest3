@@ -58,7 +58,10 @@ int get_missing_value(struct node *root, int n){
 			int x = search(root, i);
 			if (x == 1) continue;
 			else
+			{
+				printf("%d", i);
 				return i;
+				}
 		}
 	}
 }

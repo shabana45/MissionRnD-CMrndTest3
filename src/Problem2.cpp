@@ -97,13 +97,11 @@ int is_identical(struct node_dll *head, struct node *root){
 	int flag = 1;
 	do
 	{
-		printf("X");
 		x = search1(root, temp->data);
 		if (x != 1){
 			return 0;
 		}
 		head = head->next;
 	} while (head != NULL);
-	printf("\n");
 		return 1;
 }

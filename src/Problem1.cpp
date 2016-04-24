@@ -63,6 +63,7 @@ int get_missing_value(struct node *root, int n){
 				return i;
 				}
 		}
+    return -1;
 	}
 }
 int search(struct node* root, int n)

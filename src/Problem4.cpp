@@ -46,7 +46,7 @@ void merge_two_bst(struct node *root1, struct node *root2){
 	preorder(root2, arr, i);
 	for (int j = 0; j < *i; j++)
 		root1 = add_node(root1, arr[j]);
-	preorder(root1, arr, i);
+	free(i);
 }
 void preorder(struct node* root2, int* arr, int* i)
 {

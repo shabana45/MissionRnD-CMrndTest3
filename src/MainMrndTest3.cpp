@@ -59,40 +59,16 @@ struct node* add_node_spec(struct node *root, int data){
 
 	return root;
 }
-struct node_dll *newNode_DLL_spec(int key)
-{
-	struct node_dll *temp = (struct node_dll *)malloc(sizeof(struct node_dll));
-	temp->data = key;
-	temp->next = NULL;
-	temp->prev = NULL;
-	return temp;
-}
-struct node_dll * make_dll_spec(int *arr, int len){
-	struct node_dll *root = newNode_DLL_spec(arr[0]);
-	struct node_dll *temp = root;
-	for (int i = 1; i < len; i++){
-		struct node_dll *cur = newNode_DLL_spec(arr[i]);
-		temp->next = cur;
-		cur->prev = temp;
-		temp = temp->next;
-	}
-	return root;
-}
 int main(){
-	int b1[] = { 5, 3, 2, 1, 4 };
-	int b2[] = { 5, 3, 2, 1, 4 };
-	int l1 = 7;
-	int l2 = 5;
-	struct node* root1 = NULL;
-	struct node* root2 = NULL;
-	struct node_dll * head = NULL;
-	for (int i = 0; i < l2; i++)
-		head = make_dll_spec(b2, l2);
-	for (int i = 0; i < 5; i++)
-		root1 = add_node_spec(root1, b1[i]);
-	//printBST(root1);
-	int x = is_identical(head, root1);
-	printf("%d", x);
+	int arr[] = { 1, 2, 3,4, 5, 0, -999, -999 };
+	int len = 5;
+	int actual_len = 5;
+	int ans = 4;
+	struct node* root = NULL;
+	for (int i = 0; i < len; i++)
+		root = add_node_spec(root, arr[i]);
+	int x= get_missing_value(root, actual_len);
+	printf("%d ", x);
 	_getch();
 	return 0;
 };
